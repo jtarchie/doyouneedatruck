@@ -14,23 +14,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install builder
-        uses: jaxxstorm/action-install-gh-release@v1.10.0
-        with: # Grab the latest version
-          repo: jtarchie/builder
-          token: ${{ secrets.GITHUB_TOKEN }}
-          cache: enable
-
-      - name: Build
-        run: |
-          builder --source-path . --build-path ./docs/
-
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 945954ae6af55e6e4af004fb7772fdc5
           projectName: doyouneedatruck
-          directory: docs
+          directory: .
           # Optional: Enable this if you want to have GitHub Deployments triggered
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
