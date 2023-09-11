@@ -58,9 +58,19 @@
 <body>
     <div>
         <center>
-          <h1>Brad, do you need a truck?</h1>
-          <h2>No.</h2>
+            <h1 id="message">Do you need a truck?</h1>
+            <h2>No.</h2>
         </center>
     </div>
+
+    <script>
+        // Extract name from the URL path
+        const name = window.location.pathname.slice(1);
+
+        // If a name is provided in the URL, update the message
+        if (name) {
+            document.getElementById('message').textContent = `${name}, do you need a truck?`;
+        }
+    </script>
 </body>
 </html>
