@@ -65,7 +65,7 @@
 
     <script>
         // Extract name from the URL path
-        const name = window.location.pathname.slice(1);
+        const name = decodeURIComponent(window.location.pathname.slice(1));
 
         // If a name is provided in the URL, update the message
         if (name) {
